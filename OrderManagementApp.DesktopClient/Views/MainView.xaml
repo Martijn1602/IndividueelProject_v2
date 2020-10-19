@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrderManagementApp.DesktopClient.Views"
         mc:Ignorable="d"
-        Title="MainView" Height="450" Width="800">
+        Title="Main Menu" Height="350" Width="300" FontSize="14" Background="#04c582" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <StackPanel Margin = "0 60">
+            <Button x:Name = "btnDatabeheer"  
+            Content = "Databeheer" 
+            ClickMode = "Press" 
+            Margin = "20"  
+            Width = "250" 
+            HorizontalAlignment = "Center" 
+            Background="#545d6a" 
+            Foreground="White" 
+            FontSize="18"/>
+            <Button x:Name = "btnOverzicht"  
+            Content = "Overzicht"   
+            ClickMode = "Press" 
+            Margin = "20"  
+            Width = "250"  
+            HorizontalAlignment = "Center"  
+            Background="#545d6a" 
+            Foreground="White" 
+            FontSize="18"/>
+            <Button x:Name = "btnBestelling"  
+            Content = "Bestelling"  
+            ClickMode = "Press" 
+            Margin = "20"  
+            Width = "250" 
+            HorizontalAlignment = "Center"
+            Background="#545d6a" 
+            Foreground="White" 
+            FontSize="18"/>
+        </StackPanel>
     </Grid>
 </Window>

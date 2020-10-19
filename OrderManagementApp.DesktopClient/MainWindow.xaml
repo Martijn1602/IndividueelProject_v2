@@ -4,9 +4,121 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrderManagementApp.DesktopClient"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="850" Width="1200" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True">
     <Grid>
+        <TabControl>
 
+            <TabItem Width="350" Height="50" Background="#04c582" Header="Databeheer">
+                
+                    <Grid>
+                       <materialDesign:Card Margin="10" UniformCornerRadius="15">
+                           <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="1500" />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.Resources>
+                                <Style TargetType="materialDesign:PackIcon">
+                                    <Setter Property="Width" Value="30"></Setter>
+                                    <Setter Property="Height" Value="30"></Setter>
+                                </Style>
+                            </Grid.Resources>
+                               
+                            <Grid Grid.Column="0">
+                                <ListView Margin="0 15">
+
+                                    <ListViewItem HorizontalAlignment="Center" Margin="0 10">
+                                        <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
+                                                BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
+                                            <StackPanel Margin="-5">
+                                                <materialDesign:PackIcon Kind="CircleSlice6"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </ListViewItem>
+
+                                    <ListViewItem HorizontalAlignment="Center" Margin="0 10">
+                                        <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
+                                                BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
+                                            <StackPanel Margin="-5">
+                                                <materialDesign:PackIcon Kind="CalendarBlankOutline"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </ListViewItem>
+
+                                    <ListViewItem HorizontalAlignment="Center" Margin="0 10">
+                                        <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
+                                                BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
+                                            <StackPanel Margin="-5">
+                                                <materialDesign:PackIcon Kind="Resistor"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </ListViewItem>
+
+                                    <ListViewItem HorizontalAlignment="Center" Margin="0 10">
+                                        <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
+                                                BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
+                                            <StackPanel Margin="-5">
+                                                <materialDesign:PackIcon Kind="EqualizerOutline"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </ListViewItem>
+ 
+                                    <ListViewItem HorizontalAlignment="Center" Margin="0 10">
+                                        <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
+                                                BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
+                                            <StackPanel Margin="-5">
+                                                <materialDesign:PackIcon Kind="ChatOutline"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </ListViewItem>
+
+                                    <ListViewItem HorizontalAlignment="Center" Margin="0 60">
+                                        <Button Style="{StaticResource MaterialDesignFloatingActionButton}" HorizontalAlignment="Left"
+                                                BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black">
+                                            <StackPanel Margin="-5">
+                                                <materialDesign:PackIcon Kind="ExitToApp"/>
+                                            </StackPanel>
+                                        </Button>
+                                    </ListViewItem>
+
+                                </ListView>
+                                
+                            </Grid>
+
+                            <Grid Grid.Column="1" Background="#04c582" Name="RenderPages">
+
+
+                            </Grid>
+                        </Grid>
+                           
+                       </materialDesign:Card>
+                        
+                    </Grid>
+                   
+
+            </TabItem>
+
+            <TabItem Width="350" Height="50" Background="#04c582" Header="Overzicht">
+                    <TextBlock Padding="20" FontSize="18">
+                    
+                    Hier komt het overzicht.
+
+                    </TextBlock>
+
+            </TabItem>
+
+            <TabItem Width="350" Height="50" Background="#04c582" Header="Bestelling">
+                <TextBlock Padding="20" FontSize="18">
+                    
+                    Hier komen de bestellingen.
+
+                </TextBlock>
+
+            </TabItem>
+
+        </TabControl>
     </Grid>
 </Window>
