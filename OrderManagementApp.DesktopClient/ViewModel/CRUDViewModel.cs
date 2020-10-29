@@ -8,7 +8,8 @@ using System.Windows.Input;
 
 namespace OrderManagementApp.DesktopClient.ViewModel
 {
-    public abstract class CRUDViewModel<M, VM> : ViewModel where VM : IEntityViewModel<M>, new()
+    public abstract class CRUDViewModel<M, VM> : ViewModel where VM : IEntityViewModel<M>, new() 
+        where M : new()
     {
 
         protected readonly IRepository<M> repository;
@@ -21,7 +22,13 @@ namespace OrderManagementApp.DesktopClient.ViewModel
             WireCommands();
         }
 
-        protected abstract void FetchEntities();
+        private void FetchEntities()
+        {
+            var models = repository.GetEntities();
+            Entities = new ObservableCollection<VM>(models.Select(x => GetViewModel(x)));
+        }
+
+        protected abstract VM GetViewModel(M model);
 
         private void WireCommands()
         {
@@ -41,11 +48,13 @@ namespace OrderManagementApp.DesktopClient.ViewModel
         {
             int id = repository.SaveEntity(selectedEntity.GetModel());
             selectedEntity.SetEntityId(id);
+            OnPropertyChanged("Entities");
         }
 
         private void NewEntity(object _)
         {
-            var newVM = new VM();
+            var newModel = new M();
+            var newVM = GetViewModel(newModel);
             Entities.Add(newVM);
             SelectedEntity = newVM;
         }

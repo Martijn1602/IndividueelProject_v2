@@ -1,9 +1,6 @@
 ﻿using OrderManagementApp.DesktopClient.Models;
 using OrderManagementApp.DesktopClient.Services;
 using OrderManagementApp.DesktopClient.ViewModel.Models;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace OrderManagementApp.DesktopClient.ViewModel
 {
@@ -14,10 +11,9 @@ namespace OrderManagementApp.DesktopClient.ViewModel
 
         }
 
-        protected override void FetchEntities()
+        protected override CustomerViewModel GetViewModel(Customer model)
         {
-            var models = repository.GetEntities();
-            Entities = new ObservableCollection<CustomerViewModel>(models.Select(x => new CustomerViewModel(x)));
+            return new CustomerViewModel(model);
         }
     }
 }
