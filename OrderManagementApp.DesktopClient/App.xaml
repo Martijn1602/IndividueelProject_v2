@@ -1,16 +1,76 @@
 ﻿<Application x:Class="OrderManagementApp.DesktopClient.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:OrderManagementApp.DesktopClient"
-             StartupUri="Views/LoginView.xaml">
+             xmlns:vm="clr-namespace:OrderManagementApp.DesktopClient.ViewModel" 
+             xmlns:vmm="clr-namespace:OrderManagementApp.DesktopClient.ViewModel.Models" 
+             xmlns:views="clr-namespace:OrderManagementApp.DesktopClient.Views"
+             StartupUri="Shell.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
-            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type vm:LoginScreenViewModel}">
+                <views:LoginScreenView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:WorkspaceScreenViewModel}">
+                <views:WorkspaceScreenView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:DashboardScreenViewModel}">
+                <views:DashboardScreenView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:DataManagementScreenViewModel}">
+                <views:DataManagementScreenView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:OrderScreenViewModel}">
+                <views:DataManagementEntityScreenView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:SupplierScreenViewModel}">
+                <views:DataManagementEntityScreenView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:ProductScreenViewModel}">
+                <views:DataManagementEntityScreenView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:CustomerScreenViewModel}">
+                <views:DataManagementEntityScreenView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vm:CategoryScreenViewModel}">
+                <views:DataManagementEntityScreenView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmm:CategoryViewModel}">
+                <StackPanel>
+                    <Label>Name</Label>
+                    <TextBox Width="300" Text="{Binding Name}"></TextBox>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmm:ProductViewModel}">
+                <StackPanel>
+                    <Label>Name</Label>
+                    <TextBox Width="300" Text="{Binding Name}"></TextBox>
+                    <Label>Purchase Price</Label>
+                    <TextBox Width="300" Text="{Binding PurchasePrice}"></TextBox>
+                    <Label>Category</Label>
+                    <TextBox Width="300" Text="{Binding CategoryId }"></TextBox>
+                    <Label>Supplier</Label>
+                    <TextBox Width="300" Text="{Binding SupplierId }"></TextBox>
+                </StackPanel>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmm:SupplierViewModel}">
+                <StackPanel>
+                    <Label>Contact Name</Label>
+                    <TextBox Width="300" Text="{Binding ContactName}"></TextBox>
+                </StackPanel>
+            </DataTemplate>
+
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

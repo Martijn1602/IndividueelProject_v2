@@ -6,7 +6,10 @@ namespace OrderManagementApp.DesktopClient.ViewModel
     {
         protected void OnPropertyChanged(string propertyName)
         {
-            this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
 
         #region Events
