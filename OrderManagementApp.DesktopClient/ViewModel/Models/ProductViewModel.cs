@@ -34,6 +34,33 @@ namespace OrderManagementApp.DesktopClient.ViewModel.Models
                 OnPropertyChanged("PurchasePrice");
             }
         }
+        public decimal Margin
+        {
+            get { return model.Margin; }
+            set
+            {
+                model.Margin = value;
+                OnPropertyChanged("Margin");
+            }
+        }
+        public int Quantity
+        {
+            get { return model.Quantity; }
+            set
+            {
+                model.Quantity = value;
+                OnPropertyChanged("Quantity");
+            }
+        }
+        public int VATPercentage
+        {
+            get { return model.VATPercentage; }
+            set
+            {
+                model.VATPercentage = value;
+                OnPropertyChanged("VATPercentage");
+            }
+        }
 
         public string Category
         {
